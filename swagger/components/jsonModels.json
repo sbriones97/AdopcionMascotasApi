@@ -1,0 +1,133 @@
+{
+    "usuario": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "usuario",
+        "type": "object",
+        "properties": {
+            "email": {"type": "string"},
+            "password": {"type": "string"},
+            "tipo": {"type": "string" }, 
+            "nombre": {"type": "string" }, 
+            "apellidos": {"type": "string" }, 
+            "direccion": {"type": "string" }, 
+            "fecha_nacimiento": {"type": "string" }, 
+            "genero": {"type": "string" }, 
+            "familia_id": {"type": "integer" } 
+        },
+        "required": ["tipo", "nombre"]
+    },
+    "usuario-original": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "usuario-original",
+        "type": "object",
+        "properties": {
+            "email": {"type": "string"},
+            "password": {"type": "string"},
+            "tipo": {"type": "string" }, 
+            "nombre": {"type": "string" }, 
+            "direccion": {"type": "string" }, 
+            "descripcion": {"type": "string" } 
+        },
+        "required": ["tipo", "nombre", "direccion"]
+    },
+    "familia": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "familia",
+        "type": "object",
+        "properties": {
+            "apellidos": {"type": "string" }, 
+            "cantidad": {"type": "number" } 
+        },
+        "required": ["apellidos", "cantidad"]
+    },
+    "documento": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "documento",
+        "type": "object",
+        "properties": {
+            "tipo": {"type": "string" }, 
+            "fecha": {"type": "string" }, 
+            "validado": {"type": "string" }, 
+            "procesando": {"type": "string" }, 
+            "url": {"type": "string" }, 
+            "familia_id": {"type": "integer" } 
+        },
+        "required": ["tipo", "familia_id"]
+    },
+    "mascota": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "mascota",
+        "type": "object",
+        "properties": {
+            "nombre": {"type": "string"},
+            "particulares": {"type": "string"},
+            "personalidad": {"type": "string"},
+            "razon": {"type": "string"},
+            "cartilla": {"type": "string"},
+            "notas": {"type": "string"},
+            "fotos": {"type": "string"},
+            "usuario_id": {"type": "integer" }, 
+            "usuario_original_id": {"type": "integer" }, 
+            "raza_id": {"type": "integer" }, 
+            "adoptando": {"type": "string" }, 
+            "adoptado": {"type": "string" }, 
+            "fecha_adopcion": {"type": "string" } 
+        },
+        "required": ["usuario_original_id", "raza_id"]
+    },
+    "proceso": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "proceso",
+        "type": "object",
+        "properties": {
+            "mascota_id": {"type": "integer" }, 
+            "usuario_id": {"type": "integer" }, 
+            "usuario_original_id": {"type": "integer" }, 
+            "entrevistas": {"type": "string" }, 
+            "documentos": {"type": "string" }, 
+            "contrato": {"type": "string" }, 
+            "estatus": {"type": "string" }, 
+            "notas": {"type": "string" } 
+        },
+        "required": ["mascota_id", "usuario_id", "usuario_original_id"]
+    },
+    "proceso-log": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "proceso-log",
+        "type": "object",
+        "properties": {
+            "titulo": {"type": "string" }, 
+            "descripcion": {"type": "string" }, 
+            "importancia": {"type": "string" }, 
+            "proceso_id": {"type": "integer" } 
+        },
+        "required": ["titulo ", "descripcion", "importancia", "proceso_id"]
+    },
+    "seguimiento": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "seguimiento",
+        "type": "object",
+        "properties": {
+            "mascota_id": {"type": "integer" }, 
+            "usuario_id": {"type": "integer" }, 
+            "usuario_original_id": {"type": "integer" }, 
+            "estado_mascota": {"type": "string" }, 
+            "ultima_revision": {"type": "string" }, 
+            "siguiente_revision": {"type": "string" }, 
+            "revision_imprevista": {"type": "string" } 
+        },
+        "required": ["id", "name"]
+    },
+    "seguimiento-log": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "seguimiento-log",
+        "type": "object",
+        "properties": {
+            "titulo": {"type": "string" }, 
+            "descripcion": {"type": "string" }, 
+            "importancia": {"type": "string" }, 
+            "seguimiento_id": {"type": "integer" } 
+        },
+        "required": ["titulo", "descripcion", "importancia", "seguimiento_id"]
+    }
+}

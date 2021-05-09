@@ -1,0 +1,174 @@
+components:
+  schemas:
+    usuario:
+      properties:
+        usuario_id: 
+          type: integer
+        tipo:
+          type: string
+        nombre:
+          type: string
+        apellidos:
+          type: string
+        direccion:
+          type: string
+        fecha_nacimiento:
+          type: string
+        genero:
+          type: string
+        familia_id:
+          type: integer
+      # Both properties are required
+      required:  
+        - tipo
+        - nombre
+    usuario-original:
+      properties:
+        usuario_original_id: 
+          type: integer
+        tipo:
+          type: string
+        nombre:
+          type: string
+        direccion:
+          type: string
+        descripcion:
+          type: string
+      # Both properties are required
+      required:  
+        - tipo
+        - nombre
+        - direccion
+    familia:
+      properties:
+        familia_id: 
+          type: integer
+        apellidos:
+          type: string
+        cantidad:
+          type: number
+      # Both properties are required
+      required:  
+        - apellidos
+        - cantidad
+    documento:
+      properties:
+        documento_id: 
+          type: integer
+        tipo:
+          type: string
+        fecha:
+          type: string
+        validado:
+          type: string
+        procesando:
+          type: string
+        url:
+          type: string
+        familia_id:
+          type: integer
+      # Both properties are required
+      required:  
+        - tipo
+        - familia_id
+    mascota:
+      properties:
+        mascota_id: 
+          type: integer
+        usuario_id:
+          type: integer
+        usuario_original_id:
+          type: integer
+        raza_id:
+          type: integer
+        adoptando:
+          type: string
+        adoptado:
+          type: string
+        fecha_adopcion:
+          type: string
+      # Both properties are required
+      required:  
+        - usuario_original_id
+        - raza_id
+    proceso:
+      properties:
+        proceso_id: 
+          type: integer
+        mascota_id:
+          type: integer
+        usuario_id:
+          type: integer
+        usuario_original_id:
+          type: integer
+        entrevistas:
+          type: string
+        documentos:
+          type: string
+        contrato:
+          type: string
+        estatus:
+          type: string
+        notas:
+          type: string
+      # Both properties are required
+      required:  
+        - mascota_id
+        - usuario_id
+        - usuario_original_id
+    proceso-log:
+      properties:
+        log_id: 
+          type: integer
+        titulo:
+          type: string
+        descripcion:
+          type: string
+        importancia:
+          type: string
+        proceso_id:
+          type: integer
+      required:  
+        - titulo 
+        - descripcion
+        - importancia
+        - proceso_id
+    seguimiento:
+      properties:
+        seguimiento_id: 
+          type: integer
+        mascota_id:
+          type: integer
+        usuario_id:
+          type: integer
+        usuario_original_id:
+          type: integer
+        estado_mascota:
+          type: string
+        ultima_revision:
+          type: string
+        siguiente_revision:
+          type: string
+        revision_imprevista:
+          type: string
+      # Both properties are required
+      required:  
+        - id
+        - name
+    seguimiento-log:
+      properties:
+        log_id: 
+          type: integer
+        titulo:
+          type: string
+        descripcion:
+          type: string
+        importancia:
+          type: string
+        seguimiento_id:
+          type: integer
+      required:  
+        - titulo 
+        - descripcion
+        - importancia
+        - seguimiento_id

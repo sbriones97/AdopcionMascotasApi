@@ -1,0 +1,487 @@
+openapi: 3.0.0
+info:
+  title: Adoptando Mascotas API
+  description: Adoptando Ando
+  version: 0.1.0
+servers:
+  - url: http://api.example.com/v1
+    description: Optional server description, e.g. Main (production) server
+paths:
+  /usuario/{usuarioId}:
+    get:
+      summary: Regresa info del usuario.
+      description: Regresa info del usuario.
+      parameters:
+        - name: usuarioId
+          in: path
+          required: true
+          description: Parametro para buscar Usuario
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info del usuario
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /usuario-original/{usuarioId}:
+    get:
+      summary: Regresa info de usuario que da mascota o mascotas en adopcion.
+      description: Regresa info de usuario que da mascota o mascotas en adopcion.
+      parameters:
+        - name: usuarioId
+          in: path
+          required: true
+          description: Parametro del id del usuario.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info del usuario dando en adopción
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /familia/{usuarioId}:
+    get:
+      summary: Regresa información de la familia de un usuario.
+      description: Regresa información de la familia de un usuario.
+      parameters:
+        - name: usuarioId
+          in: path
+          required: true
+          description: Parametro de la familia del usuario.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info de la familia
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /mascota/{mascotaId}:
+    get:
+      summary: Regresa info de la mascota que se da en adopción
+      description: Regresa info de la mascota que se da en adopción.
+      parameters:
+        - name: mascotaId
+          in: path
+          required: true
+          description: Parametro del Id de la mascota
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info de la mascota
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /documentos/{usuarioId}:
+    get:
+      summary: Regresa info de los documentos del usuario y su familia.
+      description: Regresa info de los documentos del usuario y su familia.
+      parameters:
+        - name: usuarioId
+          in: path
+          required: true
+          description: Parametro del Id del usuario para en base a familia, sacar sus documentos.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info de documentos
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /proceso/{mascotaId}:
+    get:
+      summary: Regresa info del proceso de la mascota en adopción.
+      description: Regresa info del proceso de la mascota en adopción.
+      parameters:
+        - name: mascotaId
+          in: path
+          required: true
+          description: Parametro del Id de la mascota dando en adopción
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info del proceso de la adopción
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /log-proceso/{procesoId}:
+    get:
+      summary: Regresa log de los eventos del proceso.
+      description: Regresa log de los eventos del proceso.
+      parameters:
+        - name: procesoId
+          in: path
+          required: true
+          description: Parametro del Id del proceso para sus logs.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con todos los eventos del proceso
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /seguimiento/{mascotaId}:
+    get:
+      summary: Regresa info del status del seguimiento de la mascota adoptada.
+      description: Regresa info del status del seguimiento de la mascota adoptada.
+      parameters:
+        - name: mascotaId
+          in: path
+          required: true
+          description: Parametro de la mascota que se da seguimiento después de la adopción
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON de la info del status del seguimiento
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /log-seguimiento/{seguimientoId}:
+    get:
+      summary: Regresa info de los eventos del seguimiento de la mascota.
+      description: Regresa info de los eventos del seguimiento de la mascota.
+      parameters:
+        - name: seguimientoId
+          in: path
+          required: true
+          description: Parametros del Id del seguimiento de la mascota
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info de todos los eventos
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /sala-chat/{usuarioId1}/{usuarioId2}:
+    get:
+      summary: Regresa info de la sala de chat entre usuario
+      description: Regresa info de la sala de chat entre usuario.
+      parameters:
+        - name: usuarioId1
+          in: path
+          required: true
+          description: Parametro del Id del 1er usuario del chat.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: usuarioId2
+          in: path
+          required: true
+          description: Parametro del Id del 2do usuario del chat.
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':    # status code
+          description: JSON con info de la sala de chat
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /usuario:
+    post:
+      summary: Registra en base de datos un usuario
+      description: Registra en base de datos un usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses: 
+        '201':
+          description: Created
+  /usuario-original:
+    post:
+      summary: Registra info de usuario que da mascota o mascotas en adopcion.
+      description: Registra info de usuario que da mascota o mascotas en adopcion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario-original'
+      responses: 
+        '201':
+          description: Created
+  /familia:
+    post:
+      summary: Registra información de la familia de un usuario.
+      description: Registra información de la familia de un usuario.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/familia'
+      responses: 
+        '201':
+          description: Created
+  /mascota:
+    post:
+      summary: Registra info de la mascota que se da en adopción
+      description: Registra info de la mascota que se da en adopción.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mascota'
+      responses: 
+        '201':
+          description: Created
+  /documentos:
+    post:
+      summary: Registra info de los documentos del usuario y su familia.
+      description: Registra info de los documentos del usuario y su familia.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/documentos'
+      responses: 
+        '201':
+          description: Created
+  /proceso:
+    post:
+      summary: Registra info del proceso de la mascota en adopción.
+      description: Registra info del proceso de la mascota en adopción.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proceso'
+      responses: 
+        '201':
+          description: Created
+  /log-proceso:
+    post:
+      summary: Registra log de los eventos del proceso.
+      description: Registra log de los eventos del proceso.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proceso-log'
+      responses: 
+        '201':
+          description: Created
+  /seguimiento:
+    post:
+      summary: Registra info del status del seguimiento de la mascota adoptada.
+      description: Registra info del status del seguimiento de la mascota adoptada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/seguimiento'
+      responses: 
+        '201':
+          description: Created
+  /log-seguimiento:
+    post:
+      summary: Registra info de los eventos del seguimiento de la mascota.
+      description: Registra info de los eventos del seguimiento de la mascota.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/seguimiento-log'
+      responses: 
+        '201':
+          description: Created
+  /sala-chat:
+    post:
+      summary: Registra info de la sala de chat entre usuario
+      description: Registra info de la sala de chat entre usuario.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses: 
+        '201':
+          description: Created
+  /update-usuario:
+    put:
+      summary: Registra en base de datos un usuario
+      description: Registra en base de datos un usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses: 
+        '201':
+          description: Created
+  /update-usuario-original:
+    put:
+      summary: Modifica info de usuario que da mascota o mascotas en adopcion.
+      description: Modifica info de usuario que da mascota o mascotas en adopcion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario-original'
+      responses: 
+        '201':
+          description: Created
+  /update-familia:
+    put:
+      summary: Modifica información de la familia de un usuario.
+      description: Modifica información de la familia de un usuario.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/familia'
+      responses: 
+        '201':
+          description: Created
+  /update-mascota:
+    put:
+      summary: Modifica info de la mascota que se da en adopción
+      description: Modifica info de la mascota que se da en adopción.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mascota'
+      responses: 
+        '201':
+          description: Created
+  /update-documentos:
+    put:
+      summary: Modifica info de los documentos del usuario y su familia.
+      description: Modifica info de los documentos del usuario y su familia.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/documentos'
+      responses: 
+        '201':
+          description: Created
+  /update-proceso:
+    put:
+      summary: Modifica info del proceso de la mascota en adopción.
+      description: Modifica info del proceso de la mascota en adopción.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proceso'
+      responses: 
+        '201':
+          description: Created
+  /update-log-proceso:
+    put:
+      summary: Modifica log de los eventos del proceso.
+      description: Modifica log de los eventos del proceso.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proceso-log'
+      responses: 
+        '201':
+          description: Created
+  /update-seguimiento:
+    put:
+      summary: Modifica info del status del seguimiento de la mascota adoptada.
+      description: Modifica info del status del seguimiento de la mascota adoptada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/seguimiento'
+      responses: 
+        '201':
+          description: Created
+  /update-log-seguimiento:
+    put:
+      summary: Modifica info de los eventos del seguimiento de la mascota.
+      description: Modifica info de los eventos del seguimiento de la mascota.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/seguimiento-log'
+      responses: 
+        '201':
+          description: Created
